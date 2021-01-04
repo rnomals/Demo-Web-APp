@@ -1,0 +1,105 @@
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face{
+    font-family: PopinsRegular;
+    src: url(./fonts/Poppins-Regular.ttf);
+}
+
+@font-face{
+    font-family: PopinsBold;
+    src: url(./fonts/Poppins-Bold.ttf);
+}
+
+
+body{
+    font-family: PopinsRegular;
+    background-color: #DADADA;
+}
+
+nav{
+    overflow: hidden;
+    position: fixed;
+    background-color: #FFC017;
+    min-height: 10vh;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    padding: 20px 20px;
+    justify-content: space-between;
+    justify-self: center;
+    border-bottom: 1px solid black;
+}
+
+.logo{
+    font-family: PopinsBold;
+    font-size: 24px;
+}
+
+.menu a{
+    display: inline;
+    color: black;
+    font-size: 16px;
+    padding: 0px 10px;
+    text-decoration: none;
+}
+
+.menu button{
+    display: inline;
+    padding: 10px 20px;
+    margin: 0px 15px;
+    color: white;
+    font-size: 16px;
+    background-color: black;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 7px;
+}
+
+.details{
+    display: grid;
+    grid-template-columns: 20px 1fr 1fr 20px;
+    background-color: #FFC017;
+    border-bottom: 1px solid black;
+}
+
+.details-text{
+    grid-column: 2/3;
+    margin-top: 10vh;
+}
+
+.details-text h1{
+    font-size: 64px;
+    margin-top: 30px;
+}
+
+.details-text h3{
+    font-size: 24px;
+    font-family: PopinsRegular;
+}
+
+.details-text button{
+    margin: 20px 0px 20px 0px;
+    padding: 10px 20px;
+    background-color: #FFC017;
+    color: black;
+    border: 2px solid black;
+    border-radius: 8px;
+    font-size: 24px;
+}
+
+.details img{
+    grid-column: 3/4;
+    width: 400px;
+    height: 400px;
+    justify-self: center;
+    justify-content: center;
+    margin: 10vh;
+    padding: 20px 20px;
+}
