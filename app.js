@@ -3,7 +3,7 @@ function init(){
     const navBar = document.querySelector('nav');
     const main = document.querySelector('main');
     const yOffSet = main.offsetTop;
-    const menuButton = document.querySelector('.menu button');
+    const menuButton = document.querySelector('#menuButton');
 
     function changeNavBar(){
         if(window.pageYOffset >= yOffSet){
