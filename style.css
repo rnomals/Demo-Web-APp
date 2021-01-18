@@ -49,7 +49,7 @@ nav{
     text-decoration: none;
 }
 
-.menu button{
+.menu .button{
     display: inline;
     padding: 10px 20px;
     margin: 0px 15px;
@@ -82,9 +82,10 @@ nav{
 .details-text h3{
     font-size: 24px;
     font-family: PopinsRegular;
+    margin-bottom: 30px;
 }
 
-.details-text button{
+.details-text .button{
     margin: 20px 0px 20px 0px;
     padding: 10px 20px;
     background-color: #FFC017;
@@ -92,6 +93,7 @@ nav{
     border: 2px solid black;
     border-radius: 8px;
     font-size: 24px;
+    text-decoration: none;
 }
 
 .details img{
@@ -102,4 +104,147 @@ nav{
     justify-content: center;
     margin: 10vh;
     padding: 20px 20px;
+}
+
+.posts{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin: 20px 20px;
+}
+
+.post{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+.post img{
+    height: 240px;
+    width: 180px;
+    margin-right: 10px;
+}
+
+.post-content{
+    width: 60%;
+}
+
+.post-details{
+    font-size: 16px;
+}
+
+.post h3{
+    font-family: PopinsBold;
+    font-size: 36px;
+}
+
+.subheading{
+    font-size: 30px;
+}
+
+.info{
+    font-size: 16px;
+    margin-top: 10px;
+    color: grey;
+}
+
+.post span{
+    color: grey;
+}
+
+.auth-form{
+    position: absolute;
+    background-color: white;
+    z-index: 1;
+    width: 40%;
+    top: 10%;
+    left: 10%;
+    border: 2px solid #FFC017;
+    border-radius: 10px;
+}
+
+.register{
+    top: 2%;
+    overflow: hidden;
+}
+
+.auth-form h3{
+    font-size: 32px;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #FFC017;
+}
+
+.input-field{
+    margin: 20px 20px;
+}
+
+.input-field label{
+    font-size: 24px;
+    margin: 0px 0px;
+    padding: 0px;
+    display: inline-block;
+    width: 100%;
+}
+
+.input-field input[type=text],
+.input-field input[type=email],
+.input-field input[type=password]{
+    width: 100%;
+    font-size: 18px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.input-field input[type=text],
+.input-field input[type=email]:focus,
+.input-field input[type=password]:focus{
+    border: 2px solid #b6b8ba94;
+}
+
+.auth-form .submit{
+    background-color: white;
+    margin: 20px 20px 30px 10px;
+    font-size: 16px;
+    color: #1172d4;
+    padding: 12px 20px;
+    border: 2px solid #1172d4;
+    border-radius: 6px;
+    float: right;
+    height: 50px;
+}
+
+.auth-form .submit:hover{
+    color: white;
+    background-color: #1172d4;
+}
+
+.auth-form .close{
+    background-color: white;
+    height: 50px;
+    margin: 20px 30px 30px 5px;
+    font-size: 16px;
+    color: red;
+    padding: 12px 20px;
+    border: 2px solid red;
+    border-radius: 6px;
+    float: right;
+    text-decoration: none;
+}
+
+.close:hover{
+    color: white;
+    background: red;
+}
+
+.img-right{
+    float: right;
+    margin-top: 5%;
+    margin-right: 40px;
+    height: 60%;
+    width: 50%;
 }
