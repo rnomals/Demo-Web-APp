@@ -49,6 +49,13 @@ nav{
     text-decoration: none;
 }
 
+.menu p{
+    display: inline;
+    color: black;
+    font-size: 16px;
+    padding: 0px 10px;
+}
+
 .menu .button{
     display: inline;
     padding: 10px 20px;
@@ -56,6 +63,19 @@ nav{
     color: white;
     font-size: 16px;
     background-color: black;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 7px;
+}
+
+.menu .logout{
+    display: inline;
+    padding: 10px 20px;
+    margin: 0px 15px;
+    color: white;
+    font-size: 16px;
+    background-color: red;
     text-align: center;
     text-decoration: none;
     border: none;
@@ -190,7 +210,8 @@ nav{
 
 .input-field input[type=text],
 .input-field input[type=email],
-.input-field input[type=password]{
+.input-field input[type=password],
+.input-field textarea{
     width: 100%;
     font-size: 18px;
     padding: 12px 20px;
@@ -200,13 +221,14 @@ nav{
     transition: 0.5s;
 }
 
-.input-field input[type=text],
+.input-field input[type=text]:focus,
 .input-field input[type=email]:focus,
-.input-field input[type=password]:focus{
+.input-field input[type=password]:focus,
+.input-field textarea:focus{
     border: 2px solid #b6b8ba94;
 }
 
-.auth-form .submit{
+.submit{
     background-color: white;
     margin: 20px 20px 30px 10px;
     font-size: 16px;
@@ -218,12 +240,12 @@ nav{
     height: 50px;
 }
 
-.auth-form .submit:hover{
+.submit:hover{
     color: white;
     background-color: #1172d4;
 }
 
-.auth-form .close{
+.close{
     background-color: white;
     height: 50px;
     margin: 20px 30px 30px 5px;
@@ -247,4 +269,71 @@ nav{
     margin-right: 40px;
     height: 60%;
     width: 50%;
+}
+
+.error{
+    color: red;
+    font-size: 18px;
+    text-align: center;
+}
+
+.dashboard{
+    position: absolute;
+    top: 15vh;
+    z-index: 1;
+    background-color: white;
+    width: 80%;
+    left: 10%;
+    border-radius: 10px;
+    padding: 20px 20px;
+}
+
+.top-block{
+    margin: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-block a{
+    display: block;
+    background-color: green;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+#posts {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+  }
+
+#posts td, #posters th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  #posts tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #posts tr:hover {background-color: #ddd;}
+  
+  #posts th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #512391;
+    color: white;
+  }
+
+.post-form{
+    position: absolute;
+    background-color: white;
+    z-index: -1;
+    width: 80%;
+    top: 15vh;
+    left: 10%;
+    border-radius: 10px;
 }

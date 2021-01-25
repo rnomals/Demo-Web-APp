@@ -3,6 +3,7 @@
     require_once("./conf/db_conn.php");
 
     $name = $organization = $email = $password = $confirmPassword = "";
+    $passwordErr = $emailErr = "";
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $name = format_input($_POST['name']);
@@ -12,13 +13,21 @@
         $confirmPassword = $_POST['confirm-password'];
 
         if($password != $confirmPassword){
-            
+            $passwordErr = "Password and confirm password does not match !";
         }else{
-            $password = password_hash($password,PASSWORD_DEFAULT);
-            $sql_query = "INSERT INTO user (name,email,organization,password) VALUES (?,?,?,?)";
-            $stmt = $conn->prepare($sql_query);
-            $stmt->bind_param('ssss', $name,$email,$organization,$password);
-            $stmt->execute();
+            $sql_email_verify = "SELECT user_id from user WHERE email='$email'";
+            $result = $conn->query($sql_email_verify);
+            if(!empty($result) && $result->num_rows > 0){
+                $emailErr = "User Email already exists!";
+            }else{
+                $password = password_hash($password,PASSWORD_DEFAULT);
+                $sql_query = "INSERT INTO user (name,email,organization,password) VALUES (?,?,?,?)";
+                $stmt = $conn->prepare($sql_query);
+                $stmt->bind_param('ssss', $name,$email,$organization,$password);
+                $stmt->execute();
+
+                header("Location:http://127.0.0.1/demo/sign-in.php");
+            }
         }
 
     }
@@ -48,20 +57,35 @@
 <body>
         <div class="auth-form register" id="signIn-form">
             <h3>Register</h3>
+            <?php
+                if(!empty($passwordErr)){
+                    echo "<div class='error'>".$passwordErr."</div>";
+                }else{
+                    if(!empty($emailErr)){
+                        echo "<div class='error'>".$emailErr."</div>";
+                    }
+                }
+            ?>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                 <div class="input-field">
                     <label for="Name">Name</label>
-                    <input type="text" name="name" id="name" required>
+                    <input type="text" name="name" id="name" 
+                        <?php if(!empty($name)) echo 'value="'.$name.'"'; ?>
+                    required>
                 </div>
 
                 <div class="input-field">
                     <label for="Email">Email</label>
-                    <input type="email" name="email" id="email" required>
+                    <input type="email" name="email" id="email" 
+                    <?php if(!empty($email)) echo 'value="'.$email.'"'; ?>
+                    required>
                 </div>
 
                 <div class="input-field">
                     <label for="Organization">Organization</label>
-                    <input type="text" name="organization" id="organization" required>
+                    <input type="text" name="organization" id="organization" 
+                    <?php if(!empty($organization)) echo 'value="'.$organization.'"'; ?>
+                    required>
                 </div>
     
                 <div class="input-field">

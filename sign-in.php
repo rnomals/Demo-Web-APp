@@ -1,3 +1,47 @@
+<?php
+
+require_once("./conf/db_conn.php");
+session_start();
+
+$email = $password = "";
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $email = format_input($_POST['email']);
+    $password = $_POST['password'];
+
+    $sql_query = "SELECT * from user WHERE email=?";
+    $stmt = $conn->prepare($sql_query);
+    $stmt->bind_param('s',$email);
+    $stmt->execute();
+    $results = $stmt->get_result();
+
+    if(!empty($results) && $results->num_rows > 0){
+        $row = $results->fetch_assoc();
+        $hashedPassword = $row['password'];
+
+        if(password_verify($password,$hashedPassword)){
+
+            $_SESSION['name'] = $row['name'];
+            $_SESSION['uid'] = $row['user_id'];
+
+            header("Location:http://127.0.0.1/demo/dashboard.php");
+        }
+
+
+    }
+
+}
+
+function format_input($data){
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

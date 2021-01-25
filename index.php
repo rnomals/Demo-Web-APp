@@ -1,3 +1,10 @@
+<?php
+
+session_start();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,11 +19,26 @@
         <nav>
             <h3 class="logo">My Blog</h3>
 
+
+            <?php
+                if(!empty($_SESSION['name'])){
+            
+            ?>
+                <div class="menu">
+                    <p>Welcome, <?php echo $_SESSION['name'];?></p>
+                    <a class="logout" href="./log-out.php">Logout</a>
+                </div>
+            <?php
+                }else{
+            ?>
             <div class="menu">
                 <a href="#"> Our Story</a>
-                <a href="./sign-in.html">Sign In</a>
+                <a href="./sign-in.php">Sign In</a>
                 <a class="button" id="menuButton" href="./sign-up.php">Get Started</a>
             </div>
+            <?php
+                }
+            ?>
         </nav>
 
             <div class="details">
